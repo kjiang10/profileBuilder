@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+   "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+<constant name="struts.devMode" value="true" />
+<constant name="struts.action.excludePattern" value="/Accessdb*"/>
+<constant name="struts.action.excludePattern" value="Accessdb*"/>
+<constant name="struts.action.excludePattern" value="/Accessdb"/>
+<constant name="struts.action.excludePattern" value="Accessdb"/>
+<constant name="struts.action.excludePattern" value="APIdb"/>
+	<package name="default" namespace="/" extends="struts-default">			    
+	    <!-- search -->
+	   	<action name="createcv">
+            <result>/EditCV.jsp</result>
+      </action>
+      <action name="editcv" class="actions.CVEditAction" method="execute">
+            <result name="editcv">/EditCV.jsp</result>
+      </action>
+      <action name="sortcv" class="actions.CVSortAction" method="execute">
+            <result name="sortcv">/SortCV.jsp</result>
+      </action>
+
+      
+   	</package>
+</struts>

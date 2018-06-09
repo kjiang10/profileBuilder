@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+	<display-name>Struts 2</display-name>
+   	
+   	<welcome-file-list>
+   		<welcome-file>index.jsp</welcome-file>
+  	</welcome-file-list>
+  	
+  	<filter>
+		<!-- The CORS filter with parameters -->
+		<filter-name>CORS</filter-name>
+		<filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
+		
+		<!-- Note: All parameters are options, if omitted the CORS 
+		     Filter will fall back to the respective default values.
+		  -->
+		<init-param>
+			<param-name>cors.allowGenericHttpRequests</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>cors.allowOrigin</param-name>
+			<param-value>*</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>cors.allowSubdomains</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>cors.supportedMethods</param-name>
+			<param-value>GET, HEAD, POST, OPTIONS</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>cors.supportedHeaders</param-name>
+			<param-value>*</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>cors.exposedHeaders</param-name>
+			<param-value>X-Test-1, X-Test-2</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>cors.supportsCredentials</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>cors.maxAge</param-name>
+			<param-value>3600</param-value>
+		</init-param>
+
+	</filter>
+
+	<filter-mapping>
+		<!-- CORS Filter mapping -->
+		<filter-name>CORS</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+   	
+   	<filter>
+	    <filter-name>struts2-prepare</filter-name>
+	    <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareFilter</filter-class>
+	</filter>
+	
+	<filter>
+	    <filter-name>sitemesh</filter-name>
+	    <filter-class>com.opensymphony.sitemesh.webapp.SiteMeshFilter</filter-class>
+	</filter>
+	
+	<filter>
+	    <filter-name>struts2-execute</filter-name>
+	    <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsExecuteFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+	    <filter-name>struts2-prepare</filter-name>
+	    <url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+	    <filter-name>sitemesh</filter-name>
+	    <url-pattern>/*</url-pattern>
+	    <dispatcher>REQUEST</dispatcher>
+	    <dispatcher>FORWARD</dispatcher>
+	    <dispatcher>INCLUDE</dispatcher>
+	</filter-mapping>
+	
+	<filter-mapping>
+	    <filter-name>struts2-execute</filter-name>
+	    <url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	
+	<servlet>
+	<servlet-name>Accessdb</servlet-name>
+	<servlet-class>com.Accessdb</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+	<servlet-name>Accessdb</servlet-name>
+	<url-pattern>/CVSelection.jsp</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	<servlet-name>APIdb</servlet-name>
+	<servlet-class>com.APIdb</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+	<servlet-name>APIdb</servlet-name>
+	<url-pattern>/ARISECVAPI.jsp</url-pattern>
+	</servlet-mapping>
+	
+	
+	
+</web-app>
