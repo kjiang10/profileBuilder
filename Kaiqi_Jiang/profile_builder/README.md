@@ -4,7 +4,17 @@ Profile Builder to manage and import profiles from other profile management syst
 
 WebContent/index.jsp: home page of the Profile Builder
 
-WebContent/EditCV.jsp: web page to import from other external sources, add new attributes and edit attributes.
+WebContent/EditCV.jsp: web page to import from other external sources, add new attributes and edit attributes, export new attributes from external sources, such as Google Scholar, Linkedin, Facebook and arrange them in the certain order.
+
+General info: contains all the general information the user enters
+
+Add attributes: lets the user to manually create an attribute
+
+Import attributes: lets the user to import their attributes from external sources
+
+Edit attributes: lets the user to edit their their attributes after initialization
+
+Save attributes: lets the user to select attributes needed and arrange them in the certain template.
 
 WebContent/CVcheckbox.jsp: web page to select attributes
 
